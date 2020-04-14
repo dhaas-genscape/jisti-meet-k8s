@@ -1,0 +1,18 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jitsi-http-ingress
+spec:
+  tls:
+  - hosts:
+    - your.domain.com
+    secretName: secret-containing-ssl-cert
+  rules:
+  - host: your.domain.com
+    http:
+      paths:
+      - backend:
+          serviceName: web 
+          servicePort: 80
+
